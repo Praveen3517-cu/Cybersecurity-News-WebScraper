@@ -1,9 +1,9 @@
 # Cybersecurity-News-WebScraper
 India Cybersecurity News Intelligence Platform
-#Project Overview
+# Project Overview
 Your Replit project is a comprehensive cybersecurity news intelligence platform specifically focused on Indian cybersecurity news sources. The application aggregates, analyzes, and visualizes security news with a special emphasis on government and authoritative sources.
 
-#Architecture & Core Components
+# Architecture & Core Components
 1. Web Scraping System
 scraper.py: Contains specialized scrapers for multiple Indian news sources with priority given to government sources:
 Government Sources: CERT-In, NCIIPC, I4C, NASSCOM
@@ -46,7 +46,7 @@ Detailed article view
 Key Features
 Source Prioritization: Emphasis on authoritative government cybersecurity sources (CERT-In, NCIIPC, I4C, NASSCOM)
 
-#Advanced Analysis:
+# Advanced Analysis:
 
 Natural language processing for content analysis
 Attack type categorization (phishing, ransomware, etc.)
@@ -85,12 +85,13 @@ WordCloud: Text visualization
 Interface & Communication
 Streamlit: Web application framework
 Twilio: SMS alert integration
-Deployment
+# Deployment
 Uses Replit's workflow system to run the Streamlit server on port 5000
 Notable Implementation Techniques
 Resilient Scraping: Multiple selectors and fallback mechanisms for each source
 Semantic Analysis: Keywords and content analysis for security relevance
-Alert Mechanism:
+
+# Alert Mechanism:
 Tiered severity classification
 Source credibility weighting
 Prioritized digest algorithms
