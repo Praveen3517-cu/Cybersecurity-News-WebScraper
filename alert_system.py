@@ -13,11 +13,18 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Load Twilio credentials from environment variables
-TWILIO_ACCOUNT_SID = os.environ.get('TWILIO_ACCOUNT_SID')
-TWILIO_AUTH_TOKEN = os.environ.get('TWILIO_AUTH_TOKEN')
-TWILIO_PHONE_NUMBER = os.environ.get('TWILIO_PHONE_NUMBER')
-
+# Try to get credentials from Streamlit secrets first, fall back to environment variables
+try:
+    import streamlit as st
+    TWILIO_ACCOUNT_SID = st.secrets["TWILIO_ACCOUNT_SID"]
+    TWILIO_AUTH_TOKEN = st.secrets["TWILIO_AUTH_TOKEN"]
+    TWILIO_PHONE_NUMBER = st.secrets["TWILIO_PHONE_NUMBER"]
+except (KeyError, FileNotFoundError, ImportError):
+    # Fall back to environment variables
+    TWILIO_ACCOUNT_SID = os.environ.get('TWILIO_ACCOUNT_SID')
+    TWILIO_AUTH_TOKEN = os.environ.get('TWILIO_AUTH_TOKEN')
+    TWILIO_PHONE_NUMBER = os.environ.get('TWILIO_PHONE_NUMBER')
+    
 # File to store alert history to avoid duplicate alerts
 ALERT_HISTORY_FILE = 'alert_history.json'
 
